@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux'
+import { updateHobbit } from '../actions'
 
 class EditHobbit extends React.Component {
 
@@ -24,13 +25,18 @@ class EditHobbit extends React.Component {
       [e.target.name]: e.target.value
     })
   }
+  handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('submitted form')
+    this.props.updateHobbit({...this.state, id: this.props.selectedHobbit.id})
+  }
 
   render() {
     console.log(this.state)
     return (
       <div style={{ textAlign: "center" }}>
         <div> </div>
-        <form >
+        <form onSubmit={this.handleSubmit}>
           <h5> Name: {this.state.name} </h5>
           <label>
             Title
@@ -52,5 +58,8 @@ const mapStateToProps = (state) => {
     selectedHobbit: state.selectedHobbit
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  updateHobbit: (hobbit) => {dispatch(updateHobbit(hobbit))}
+}
 
-export default connect(mapStateToProps)(EditHobbit)
+export default connect(mapStateToProps,mapDispatchToProps)(EditHobbit)

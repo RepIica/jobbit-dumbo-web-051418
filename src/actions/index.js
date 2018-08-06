@@ -15,3 +15,11 @@ export const selectHobbit = (hobbit) => {
     }
   }
 }
+export const updateHobbit = (hobbit) => {
+  return {
+    type: 'UPDATE_HOBBIT',
+    payload: {
+      hobbit
+    }
+  }
+}

@@ -20,6 +20,12 @@ const reducer = (state = initialState, action) => {
       selectedHobbit: action.payload.hobbit
     }
 
+    case 'UPDATE_HOBBIT':
+    
+    return {
+
+    }
+
     default:
     return state
   }
