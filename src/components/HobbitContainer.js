@@ -17,7 +17,7 @@ class HobbitContainer extends React.Component {
 
   render() {
     const hobsWithJobs = this.props.hobbits.map(hobbit => {
-      return <Hobbit hobbit={hobbit} />;
+      return <Hobbit hobbit={hobbit} key={hobbit.id}/>;
     });
     return (
       <div>

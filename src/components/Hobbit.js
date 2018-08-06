@@ -4,9 +4,9 @@ import { selectHobbit } from '../actions'
 import { connect } from 'react-redux'
 
 const Hobbit = props => {
-  console.log(props)
+  // console.log(props)
   return (
-    <div style={props.selectedHobbit.id === props.hobbit.id ? {'border-color':'cyan'} : {'border-color':'red'}} className='card' onClick={() => props.selectHobbit(props.hobbit) }>
+    <div className={props.selectedHobbit.id === props.hobbit.id ? 'card card-selected' : 'card'} onClick={() => props.selectHobbit(props.hobbit) }>
       <img alt={props.hobbit.name} src={props.hobbit.image_url} />
       <h3> Name: {props.hobbit.name} </h3>
       <h3> Title: {props.hobbit.title} </h3>
